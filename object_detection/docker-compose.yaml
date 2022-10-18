@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  jupyter101:
+    tty: true
+    user: root
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    ports:
+      - '8891:8891'
+    volumes:
+      - ./notebooks:/home/jovyan
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - CHOWN_HOME=yes
+      - CHOWN_HOME_OPTS=-R
+    
